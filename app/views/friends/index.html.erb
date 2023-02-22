@@ -1,0 +1,47 @@
+    <%= stylesheet_link_tag "custom", "data-turbo-track": "reload" %>
+
+
+<% if user_signed_in? %>
+<center><h1>Friends lists</h1></center>
+<div class="m-4 cd" >
+<table class="table table-bordered table-striped table-hover">
+  <thead class="thead-dark">
+    <tr>
+      <th>Name</th>
+      <!-- <th>Last Name</th> -->
+      <th>Email</th>
+      <th>Phone NO</th>
+      <th>Twitter</th>
+      <th>User Id</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @friends.each do |friend| %>
+    <% if friend.user==current_user%>
+    <tr>
+      <td>
+        <%= friend.first_name %>
+        <%= friend.last_name %>
+      </td>
+      <td><%= friend.email %></td>
+      <td><%= friend.phone %></td>
+      <td><%= friend.twitter %></td>
+      <td><%= friend.user_id %></td>
+      <th><%= link_to "Show", friend, class:"btn btn-dark" %></th>
+      <th><%= link_to "Edit", edit_friend_path(friend), class:"btn btn-dark" %></th>
+      <th><%= link_to "Destroy", friend_path(friend), class:"btn btn-dark", data: {turbo_method: :Delete, 
+        turbo_confirm: :"Are you sure"} %></th>
+        </tr>
+    <% end %>
+    <% end %>
+  </tbody>
+</table>
+</div>
+<div class="m-4">
+<%= link_to "New friend", new_friend_path, class: "btn btn-dark" %>
+</div>
+
+<% else %>
+<%= render 'home/index  '%>
+<% end %>

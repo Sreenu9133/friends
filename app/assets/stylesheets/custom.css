@@ -1,0 +1,62 @@
+
+
+.cd{
+    border-width: 5px;
+    border-style: solid;
+    border-image: linear-gradient(
+        to right,
+        darkblue,
+        darkorchid
+    );
+    border-image-slice: 1;
+}
+
+
+.cd:hover{
+    border-inline: 5px solid;
+    border-image: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0),
+        red,
+        orange,
+        rgba(0, 0, 0, 0)
+    );
+    border-image-slice: 1;
+}
+
+ul{
+    font-family: "Chivo Mono", monospace;
+    display: flex;
+    gap: 20px;
+/*    color: green;*/
+}
+
+ui li{
+    list-style: none;
+}
+
+ui li {
+    font-size: 26px;
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: white;
+    padding: 10px;
+    transition: 0.5s ease;
+}
+
+ul:hover li {
+    color: #30edf4;
+}
+
+ul:hover li:not(:hover){
+    color: white;
+    opacity: 0.3;
+    filter: blur(1px);
+}
+
+.dd{
+    background: linear-gradient(to bottom, #5F72BE, #9921E8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
